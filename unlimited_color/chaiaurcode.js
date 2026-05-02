@@ -12,7 +12,9 @@ let intervalid
 
 //funtion for changing color every second
 const startchangingcolor = function(){
-    intervalid = setInterval(changebgcolor,1000);
+    if(!intervalid){
+         intervalid = setInterval(changebgcolor,1000);
+    }
     function changebgcolor() {
         document.body.style.backgroundColor = randomcolor();
     }
@@ -21,6 +23,7 @@ const startchangingcolor = function(){
 //function to stop changing bg color
 const stopchangingcolor = function(){
      clearInterval(intervalid);
+     intervalid = null;
 };
 
 //selecting start button 
